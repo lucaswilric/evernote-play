@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>Evernote Ruby Example App</title>
+  </head>
+  <body>
+    <p>Access token: <%= @access_token %></p>
+    <a href="/requesttoken">Click here</a> to authenticate this application using OAuth.
+    <% if session[:notebooks] %>
+      <hr />
+      <h3>The current user is <%= session[:username] %> and there are some notes in their account</h3>
+      <br />
+      <h3>Here are the notebooks in this account:</h3>
+      <ul>
+        <% session[:notebooks].each do |notebook| %>
+          <li><%= notebook %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </body>
+</html>
+
+
